@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindBuddy — Your Personal Study Companion</title>
+  <meta name="description" content="MindBuddy is an academic study companion. Get study motivation, Pomodoro timers, and tutoring from your animated companion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="onboarding" class="screen active">
+    <div class="onboard-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div id="step-1" class="onboard-card step active">
+      <div class="logo-badge">🧠</div>
+      <h1>Welcome to <span class="brand">MindBuddy</span></h1>
+      <p class="subtitle">Your personal study companion for acing exams. Let's set things up!</p>
+      <div class="input-group">
+        <label for="user-name">What should I call you?</label>
+        <input id="user-name" type="text" placeholder="Enter your name…" maxlength="30" autocomplete="off" />
+        <p id="name-error" style="color:#FBBF24;font-size:.82rem;margin-top:6px;display:none;">Please enter your name to continue!</p>
+      </div>
+      <button id="btn-step1" class="btn-primary">Let's Go →</button>
+    </div>
+    <div id="step-2" class="onboard-card step hidden">
+      <h2>Choose your companion</h2>
+      <p class="subtitle">Pick a buddy who will guide you through your wellness journey!</p>
+      <div class="character-grid">
+        <div class="char-card" data-char="zac" id="pick-zac">
+          <div class="char-avatar-wrap">
+            <div class="char-avatar zac-avatar">
+              <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="115" rx="32" ry="18" fill="#4F46E5"/>
+                <rect x="28" y="95" width="64" height="28" rx="14" fill="#4F46E5"/>
+                <rect x="52" y="82" width="16" height="14" rx="6" fill="#FBBF7A"/>
+                <ellipse cx="60" cy="68" rx="30" ry="28" fill="#FBBF7A"/>
+                <ellipse cx="60" cy="42" rx="30" ry="14" fill="#1E1B4B"/>
+                <rect x="30" y="42" width="60" height="14" fill="#1E1B4B"/>
+                <ellipse cx="49" cy="65" rx="5.5" ry="6" fill="white"/>
+                <ellipse cx="71" cy="65" rx="5.5" ry="6" fill="white"/>
+                <circle cx="51" cy="66" r="3.5" fill="#1E1B4B"/>
+                <circle cx="73" cy="66" r="3.5" fill="#1E1B4B"/>
+                <circle cx="52" cy="64.5" r="1.2" fill="white"/>
+                <circle cx="74" cy="64.5" r="1.2" fill="white"/>
+                <path d="M43 58 Q49 55 55 58" stroke="#1E1B4B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M65 58 Q71 55 77 58" stroke="#1E1B4B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M51 76 Q60 83 69 76" stroke="#C2440E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <ellipse cx="31" cy="68" rx="5" ry="7" fill="#FBBF7A"/>
+                <ellipse cx="89" cy="68" rx="5" ry="7" fill="#FBBF7A"/>
+                <path d="M44 95 L60 105 L76 95" stroke="white" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="char-pulse"></div>
+          </div>
+          <h3>Zac</h3>
+          <p>High-energy Study Coach 🏀</p>
+          <div class="char-tags">
+            <span>Energetic</span><span>Direct</span><span>Motivating</span>
+          </div>
+        </div>
+        <div class="char-card" data-char="luna" id="pick-luna">
+          <div class="char-avatar-wrap">
+            <div class="char-avatar luna-avatar">
+              <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="115" rx="34" ry="18" fill="#7C3AED"/>
+                <rect x="26" y="92" width="68" height="30" rx="16" fill="#7C3AED"/>
+                <path d="M26 107 Q60 125 94 107" fill="#6D28D9"/>
+                <rect x="52" y="80" width="16" height="14" rx="6" fill="#FFD4A8"/>
+                <ellipse cx="60" cy="66" rx="30" ry="28" fill="#FFD4A8"/>
+                <ellipse cx="60" cy="40" rx="32" ry="16" fill="#7C2D12"/>
+                <rect x="28" y="40" width="64" height="18" fill="#7C2D12"/>
+                <rect x="24" y="44" width="10" height="40" rx="5" fill="#7C2D12"/>
+                <rect x="86" y="44" width="10" height="40" rx="5" fill="#7C2D12"/>
+                <path d="M46 38 Q60 33 74 38" stroke="#A0522D" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <ellipse cx="49" cy="63" rx="5.5" ry="6" fill="white"/>
+                <ellipse cx="71" cy="63" rx="5.5" ry="6" fill="white"/>
+                <circle cx="51" cy="64" r="3.5" fill="#4C1D95"/>
+                <circle cx="73" cy="64" r="3.5" fill="#4C1D95"/>
+                <circle cx="52" cy="62.5" r="1.2" fill="white"/>
+                <circle cx="74" cy="62.5" r="1.2" fill="white"/>
+                <path d="M44 57 L43 54" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M49 56 L49 53" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M54 57 L55 54" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M66 57 L65 54" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M71 56 L71 53" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M76 57 L77 54" stroke="#7C2D12" stroke-width="1.5" stroke-linecap="round"/>
+                <ellipse cx="43" cy="71" rx="6" ry="4" fill="#FFB3B3" opacity="0.5"/>
+                <ellipse cx="77" cy="71" rx="6" ry="4" fill="#FFB3B3" opacity="0.5"/>
+                <path d="M51 75 Q60 82 69 75" stroke="#C2440E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <ellipse cx="31" cy="66" rx="5" ry="7" fill="#FFD4A8"/>
+                <ellipse cx="89" cy="66" rx="5" ry="7" fill="#FFD4A8"/>
+                <circle cx="85" cy="44" r="7" fill="#F472B6"/>
+                <circle cx="85" cy="44" r="4" fill="#FBBF24"/>
+              </svg>
+            </div>
+            <div class="char-pulse luna-pulse"></div>
+          </div>
+          <h3>Luna</h3>
+          <p>Methodical Study Tutor 🌙</p>
+          <div class="char-tags">
+            <span>Organized</span><span>Calm</span><span>Wise</span>
+          </div>
+        </div>
+      </div>
+      <button id="btn-step2" class="btn-primary" disabled>Next: Add Subjects →</button>
+    </div>
+
+    <!-- Step 3: Subjects -->
+    <div id="step-3" class="onboard-card step hidden">
+      <div class="step3-icon">📚</div>
+      <h2>What subjects are you studying?</h2>
+      <p class="subtitle">Add your subjects so I can give you personalised study help!</p>
+      <div class="subject-input-row">
+        <input id="subject-input" type="text" placeholder="e.g. Math, Chemistry, Physics…" maxlength="40" autocomplete="off" />
+        <button id="add-subject-btn" class="btn-add">+ Add</button>
+      </div>
+      <div id="subject-chips" class="subject-chips"></div>
+      <p id="subject-error" style="color:#FBBF24;font-size:.82rem;margin-top:6px;display:none;">Add at least one subject to continue!</p>
+      <div class="step3-suggestions">
+        <span class="sugg-label">Common subjects:</span>
+        <div class="sugg-chips">
+          <button class="sugg-chip" data-sub="Mathematics">Math</button>
+          <button class="sugg-chip" data-sub="Physics">Physics</button>
+          <button class="sugg-chip" data-sub="Chemistry">Chemistry</button>
+          <button class="sugg-chip" data-sub="Biology">Biology</button>
+          <button class="sugg-chip" data-sub="Computer Science">CS</button>
+          <button class="sugg-chip" data-sub="English">English</button>
+          <button class="sugg-chip" data-sub="History">History</button>
+          <button class="sugg-chip" data-sub="Economics">Economics</button>
+        </div>
+      </div>
+      <button id="btn-step3" class="btn-primary" disabled>Let's Start Chatting 🚀</button>
+    </div>
+  </div>
+  <div id="app" class="screen hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="app-logo">🧠 <span>MindBuddy</span></div>
+      </div>
+      <div class="sidebar-char">
+        <div class="sidebar-avatar" id="sidebar-avatar">
+          <div class="avatar-container" id="avatar-container">
+          </div>
+          <div class="avatar-state-ring" id="avatar-ring"></div>
+        </div>
+        <div class="char-info">
+          <h3 id="char-name-display">Zac</h3>
+          <p id="char-mood">Ready to help! 😊</p>
+        </div>
+      </div>
+      <nav class="quick-nav">
+        <p class="nav-label">Quick Actions</p>
+        <button class="nav-btn" data-intent="greetings">👋 Say Hi</button>
+        <button class="nav-btn" data-intent="study_plan">📅 Study Plan</button>
+        <button class="nav-btn" data-intent="pomodoro">⏱️ Pomodoro</button>
+        <button class="nav-btn" data-intent="study_hacks">🧠 Study Hacks</button>
+        <button class="nav-btn" data-intent="motivation">💪 Motivate Me</button>
+        <button class="nav-btn" data-intent="exam_prep">📝 Exam Prep</button>
+      </nav>
+      <!-- My Subjects section -->
+      <div class="subjects-nav" id="subjects-nav">
+        <p class="nav-label">My Subjects</p>
+        <div id="subject-btns" class="subject-nav-btns"></div>
+      </div>
+      <div class="sidebar-footer">
+        <button id="history-btn" class="btn-outline-sm hist-btn">📜 History</button>
+        <button id="change-char-btn" class="btn-outline-sm">🔄 Change Companion</button>
+        <button id="clear-chat-btn" class="btn-outline-sm">🗑️ Clear Chat</button>
+      </div>
+    </aside>
+    <main class="chat-main">
+      <header class="chat-header">
+        <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+        <div class="header-info">
+          <span id="header-char-name">Zac</span>
+          <span class="online-dot"></span>
+          <span class="online-text">Online</span>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="icon-btn" title="Toggle dark/light mode">🌙</button>
+        </div>
+      </header>
+      <div class="messages" id="messages">
+        <div class="welcome-banner" id="welcome-banner">
+          <div class="welcome-icon">💬</div>
+          <h2>Hey there!</h2>
+          <p>Your companion is ready to chat. Say hello or pick a quick action from the sidebar!</p>
+        </div>
+      </div>
+      <div class="typing-area" id="typing-indicator" style="display:none;">
+        <div class="typing-bubble">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="typing-label" id="typing-label">Zac is typing…</p>
+      </div>
+      <div class="input-bar">
+        <input id="chat-input" type="text" placeholder="Type a message…" autocomplete="off" maxlength="500" />
+        <button id="send-btn" class="send-btn">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- History Modal -->
+  <div id="history-modal" class="modal-overlay hidden">
+    <div class="modal-card history-card">
+      <div class="history-card-header">
+        <h2>📜 Chat History</h2>
+        <p>Your saved past sessions</p>
+        <button id="close-history-btn" class="hist-close-btn">✕</button>
+      </div>
+      <div id="history-list" class="history-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

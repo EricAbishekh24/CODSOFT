@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindBuddy — Your Mental Wellness Companion</title>
+  <meta name="description" content="MindBuddy: A personalised mental wellness chatbot for students — study plans, stress tips, relaxation guides and crisis support.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" crossorigin src="/assets/index-DzU9zJaI.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CQmkn6pb.css">
+</head>
+<body class="light-theme char-kai">
+
+  <!-- ═══════════════════════════════════════════════════
+       ANIMATED BACKGROUND BLOBS
+  ══════════════════════════════════════════════════════ -->
+  <div class="app-background">
+    <div class="circle-blob blob-1"></div>
+    <div class="circle-blob blob-2"></div>
+    <div class="circle-blob blob-3"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       ONBOARDING OVERLAY (shown first on fresh visit)
+  ══════════════════════════════════════════════════════ -->
+  <div id="onboarding-overlay" class="onboarding-overlay">
+    <div class="onboarding-card">
+
+      <!-- Progress Steps -->
+      <div class="onboard-progress">
+        <div class="progress-step active" id="prog-1">
+          <span class="step-num">1</span><span class="step-lbl">Your Name</span>
+        </div>
+        <div class="progress-connector"></div>
+        <div class="progress-step" id="prog-2">
+          <span class="step-num">2</span><span class="step-lbl">Companion</span>
+        </div>
+        <div class="progress-connector"></div>
+        <div class="progress-step" id="prog-3">
+          <span class="step-num">3</span><span class="step-lbl">Subjects</span>
+        </div>
+      </div>
+
+      <!-- ── STEP 1: Name ── -->
+      <div id="ob-step-1" class="ob-step active">
+        <div class="ob-icon pulse-icon">👋</div>
+        <h2 class="ob-title">Welcome to <span class="brand-accent">MindBuddy</span></h2>
+        <p class="ob-subtitle">Your personal mental wellness companion for students. Let's get to know you first!</p>
+
+        <div class="ob-form-group">
+          <label for="ob-name-input" class="ob-label">What's your name?</label>
+          <input
+            type="text"
+            id="ob-name-input"
+            class="ob-input"
+            placeholder="e.g. Alex"
+            maxlength="30"
+            autocomplete="given-name"
+          >
+          <span id="ob-name-error" class="ob-error hidden">Please enter your name to continue.</span>
+        </div>
+
+        <button id="ob-step1-next" class="ob-btn-primary">
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- ── STEP 2: Character ── -->
+      <div id="ob-step-2" class="ob-step">
+        <div class="ob-icon">🧑‍🤝‍🧑</div>
+        <h2 class="ob-title">Choose your <span class="brand-accent">Companion</span></h2>
+        <p class="ob-subtitle">Pick the friend who'll walk this journey with you.</p>
+
+        <div class="ob-character-grid">
+          <!-- Kai Card -->
+          <div class="ob-char-card selected" id="ob-kai-card" data-char="kai">
+            <div class="ob-char-avatar kai-avatar">
+              <span class="avatar-emoji">🧑</span>
+              <div class="ob-char-glow kai-glow"></div>
+            </div>
+            <h3>Kai</h3>
+            <p class="ob-char-vibe">Casual · Encouraging · Fun</p>
+            <p class="ob-char-desc">"You've totally got this! Let's tackle it together."</p>
+            <div class="ob-char-traits">
+              <span class="trait-tag">😄 Upbeat</span>
+              <span class="trait-tag">🎮 Relatable</span>
+              <span class="trait-tag">💪 Motivating</span>
+            </div>
+            <div class="ob-selected-badge"><i class="fa-solid fa-circle-check"></i> Selected</div>
+          </div>
+
+          <!-- Luna Card -->
+          <div class="ob-char-card" id="ob-luna-card" data-char="luna">
+            <div class="ob-char-avatar luna-avatar">
+              <span class="avatar-emoji">👩</span>
+              <div class="ob-char-glow luna-glow"></div>
+            </div>
+            <h3>Luna</h3>
+            <p class="ob-char-vibe">Gentle · Empathetic · Calm</p>
+            <p class="ob-char-desc">"Let's take a slow breath and find some peace together."</p>
+            <div class="ob-char-traits">
+              <span class="trait-tag">🌙 Soothing</span>
+              <span class="trait-tag">🧘 Mindful</span>
+              <span class="trait-tag">💜 Caring</span>
+            </div>
+            <div class="ob-selected-badge"><i class="fa-solid fa-circle-check"></i> Selected</div>
+          </div>
+        </div>
+
+        <div class="ob-nav-row">
+          <button id="ob-step2-back" class="ob-btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button id="ob-step2-next" class="ob-btn-primary">Continue <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: Subjects ── -->
+      <div id="ob-step-3" class="ob-step">
+        <div class="ob-icon">📚</div>
+        <h2 class="ob-title">Your <span class="brand-accent">Study Subjects</span></h2>
+        <p class="ob-subtitle">Add up to 6 subjects so I can build your personalised weekly study plan.</p>
+
+        <div class="ob-subjects-area">
+          <div class="ob-subject-input-row">
+            <input
+              type="text"
+              id="ob-subject-input"
+              class="ob-input"
+              placeholder="e.g. Mathematics"
+              maxlength="40"
+            >
+            <button id="ob-add-subject-btn" class="ob-btn-icon" title="Add subject">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+          <div id="ob-subjects-list" class="ob-subjects-list">
+            <!-- Subject tags appear here -->
+          </div>
+          <p class="ob-hint">Press Enter or click + to add. You can add up to 6 subjects. <em>(Optional — skip to use general tips)</em></p>
+        </div>
+
+        <div class="ob-study-hours-row">
+          <label for="ob-hours-input" class="ob-label">
+            <i class="fa-solid fa-clock"></i> Daily study goal (hours):
+          </label>
+          <div class="ob-hours-control">
+            <button class="ob-hours-btn" id="ob-hours-minus">−</button>
+            <span id="ob-hours-display" class="ob-hours-value">4</span>
+            <button class="ob-hours-btn" id="ob-hours-plus">+</button>
+          </div>
+        </div>
+
+        <div class="ob-nav-row">
+          <button id="ob-step3-back" class="ob-btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <button id="ob-start-btn" class="ob-btn-primary ob-btn-launch">
+            <i class="fa-solid fa-rocket"></i> Start My Journey!
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /onboarding-card -->
+  </div><!-- /onboarding-overlay -->
+
+  <!-- ═══════════════════════════════════════════════════
+       MAIN APP (hidden until onboarding is complete)
+  ══════════════════════════════════════════════════════ -->
+  <div id="main-app" class="app-container hidden">
+
+    <!-- ── LEFT SIDEBAR ── -->
+    <aside class="sidebar-panel">
+      <header class="app-brand">
+        <div class="brand-logo"><i class="fa-solid fa-brain"></i></div>
+        <div>
+          <h1>MindBuddy</h1>
+          <p class="brand-tagline">Your Wellness Companion</p>
+        </div>
+      </header>
+
+      <!-- Character Showcase -->
+      <section class="character-showcase">
+        <div class="avatar-stage">
+          <div id="character-svg-container" class="character-svg-container"></div>
+          <div class="mood-indicator">
+            <span class="status-dot pulsing"></span>
+            <span id="bot-status-text">Online</span>
+          </div>
+        </div>
+        <div class="character-profile">
+          <h2 id="bot-name-display">Companion</h2>
+          <p id="bot-bio-display">Ready to support your wellness journey.</p>
+        </div>
+      </section>
+
+      <!-- Breathing Widget (hidden by default) -->
+      <section id="breathing-widget" class="breathing-widget hidden">
+        <div class="widget-header">
+          <h3><i class="fa-solid fa-lungs"></i> Guided Breathing</h3>
+          <button id="close-breathing-btn" class="icon-btn-small" title="Close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="breathing-circle-container">
+          <div id="breathing-circle" class="breathing-circle"></div>
+          <span id="breathing-instruction">Inhale...</span>
+        </div>
+        <p class="breathing-timer">Box breathing · 4s each phase</p>
+      </section>
+
+      <!-- Character Switcher -->
+      <section class="section-card selection-section">
+        <h3>Switch Companion</h3>
+        <div class="character-selector">
+          <button id="select-kai-btn" class="character-card active" aria-label="Select Kai">
+            <div class="char-thumb-avatar male-thumb"><span class="avatar-placeholder-emoji">🧑</span></div>
+            <div class="char-card-info">
+              <span class="char-name">Kai</span>
+              <span class="char-vibe">Casual &amp; Supportive</span>
+            </div>
+          </button>
+          <button id="select-luna-btn" class="character-card" aria-label="Select Luna">
+            <div class="char-thumb-avatar female-thumb"><span class="avatar-placeholder-emoji">👩</span></div>
+            <div class="char-card-info">
+              <span class="char-name">Luna</span>
+              <span class="char-vibe">Gentle &amp; Empathetic</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Controls -->
+      <section class="section-card controls-section">
+        <h3>Controls &amp; Audio</h3>
+        <div class="control-row">
+          <label for="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i> Dark Theme</label>
+          <label class="toggle-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="control-row">
+          <label for="voice-toggle"><i class="fa-solid fa-volume-high"></i> Voice</label>
+          <label class="toggle-switch" for="voice-toggle">
+            <input type="checkbox" id="voice-toggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <button id="clear-chat-btn" class="btn btn-secondary btn-full">
+          <i class="fa-solid fa-trash-can"></i> Reset Chat
+        </button>
+        <button id="change-profile-btn" class="btn btn-outline btn-full">
+          <i class="fa-solid fa-user-pen"></i> Change Profile
+        </button>
+      </section>
+    </aside>
+
+    <!-- ── RIGHT CHAT PANEL ── -->
+    <main class="chat-panel">
+      <!-- Chat Header -->
+      <header class="chat-header">
+        <div class="chat-partner-info">
+          <div id="chat-partner-avatar" class="partner-avatar"></div>
+          <div>
+            <h2 id="chat-partner-name">Kai</h2>
+            <span class="online-status"><span class="status-dot"></span>Online · MindBuddy AI</span>
+          </div>
+        </div>
+        <div class="chat-header-right">
+          <div class="user-badge" id="user-badge">
+            <i class="fa-solid fa-user-circle"></i>
+            <span id="user-badge-name">You</span>
+          </div>
+          <button id="emergency-toggle-btn" class="btn btn-danger btn-sm">
+            <i class="fa-solid fa-phone-flip animate-shake"></i> Crisis Support
+          </button>
+        </div>
+      </header>
+
+      <!-- Network error banner (shown when requests fail) -->
+      <div id="network-error" class="network-error hidden" role="alert" aria-live="polite"></div>
+
+      <!-- Messages -->
+      <div id="chat-messages-container" class="chat-messages-container"></div>
+
+      <!-- Quick Chips -->
+      <section class="chips-area">
+        <div class="chips-container" id="chips-container">
+          <button class="chip" data-intent="greetings">👋 Say Hello</button>
+          <button class="chip" data-intent="study_plan">📅 Study Plan</button>
+          <button class="chip" data-intent="mental_tips">🌿 Mental Tips</button>
+          <button class="chip" data-intent="stress">⚡ Stress Help</button>
+          <button class="chip" data-intent="relaxation">🧘 Breathe</button>
+          <button class="chip" data-intent="motivation">📚 Motivation</button>
+          <button class="chip" data-intent="emergency">🚨 Crisis Line</button>
+        </div>
+      </section>
+
+      <!-- Input -->
+      <footer class="chat-input-area">
+        <form id="chat-form" class="chat-form">
+          <input
+            type="text" id="user-input"
+            placeholder="Type a message… (e.g. 'I'm stressed' or 'give me a study plan')"
+            autocomplete="off" aria-label="Message input"
+          >
+          <button type="submit" id="send-btn" class="send-btn" aria-label="Send">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </footer>
+    </main>
+  </div><!-- /main-app -->
+
+  <!-- ── CRISIS MODAL ── -->
+  <div id="emergency-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><i class="fa-solid fa-circle-exclamation text-danger"></i> Student Crisis Support</h2>
+        <button id="close-modal-btn" class="icon-btn-large" title="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">If you are feeling extremely overwhelmed or are having thoughts of self-harm, please reach out immediately:</p>
+        <div class="emergency-list">
+          <div class="contact-card">
+            <div class="contact-info">
+              <h4>988 Suicide &amp; Crisis Lifeline</h4>
+              <p>Call or Text <strong>988</strong> · Available 24/7 (US/Canada)</p>
+            </div>
+            <a href="tel:988" class="btn btn-danger btn-sm"><i class="fa-solid fa-phone"></i> Call 988</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-info">
+              <h4>Crisis Text Line</h4>
+              <p>Text <strong>HOME</strong> to <strong>741741</strong> · 24/7</p>
+            </div>
+            <a href="sms:741741?&body=HOME" class="btn btn-secondary btn-sm"><i class="fa-solid fa-message"></i> Text Now</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-info">
+              <h4>The Trevor Project</h4>
+              <p>Call 1-866-488-7386 · LGBTQ+ Youth Support</p>
+            </div>
+            <a href="tel:1-866-488-7386" class="btn btn-secondary btn-sm"><i class="fa-solid fa-phone"></i> Call</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-info">
+              <h4>International Hotlines</h4>
+              <p>Find resources worldwide at findahelpline.com</p>
+            </div>
+            <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><i class="fa-solid fa-globe"></i> Visit</a>
+          </div>
+        </div>
+        <div class="alert-info-box">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <p>You are not alone. Reaching out is a sign of strength. A trusted friend, parent, or counsellor can also be your first step.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

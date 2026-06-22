@@ -1,0 +1,17 @@
+{
+  "name": "mindbuddy-chatbot",
+  "version": "1.0.0",
+  "description": "MindBuddy - Mental Wellness Support Chatbot",
+  "main": "index.html",
+  "scripts": {
+    "dev": "concurrently \"python server.py\" \"vite\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "python server.py",
+    "dev:all": "concurrently \"npm run start\" \"vite\""
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "concurrently": "^8.0.0"
+  }
+}
